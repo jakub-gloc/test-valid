@@ -13,28 +13,46 @@ use TestValid\Exeptation\ConfigException;
 
 class Service
 {
+
+
+    static $configArray = [];
+
     public function __construct(array $config = null)
     {
-
         if(!empty($config['LabValidator']) && is_array($config['LabValidator'])) {
-            $this->config = $config['LabValidator'];
-            $this->isValid();
+            try{
+                $this->setConfig($config['LabValidator']);
+            }catch (ConfigException $exception){
+                echo 'Error: '. $exception->getMessage();
+            }
         }
     }
 
 
-    protected $config;
-
-    public function isValid()
+    public function setConfig($config)
     {
-        if(empty($this->config['apiKey'])){
+        if(!empty($config['apiKey'])){
+            self::$configArray['apiKey'] = $config['apiKey'];
+        }
+        if(!empty($config['host'])){
+            self::$configArray['host'] = $config['host'];
+        }
+        $this->isValidConfig();
+
+    }
+
+    public function isValidConfig()
+    {
+        if(empty(self::$configArray['apiKey'])){
             throw new ConfigException();
         }
-        if(empty($this->config['host'])){
+        if(empty(self::$configArray['host'])){
             throw new ConfigException();
         }
 
     }
+
+
 
 
 
