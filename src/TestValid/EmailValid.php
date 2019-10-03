@@ -6,10 +6,9 @@
  * Time: 11:29
  */
 
-namespace TestValid\Exeptation;
+namespace TestValid;
 
 
-use TestValid\Service;
 use Zend\Validator\AbstractValidator;
 
 class EmailValid extends AbstractValidator
