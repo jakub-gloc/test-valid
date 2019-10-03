@@ -1,0 +1,32 @@
+{
+    "name": "jakub-gloc/test-valid",
+    "description": "name",
+    "version": "1.0.2",
+    "type": "library",
+    "license": "MIT",
+    "keywords": [
+        "swagger",
+        "php",
+        "sdk",
+        "api",
+        "pawella"
+    ],
+    "authors": [
+        {
+            "name": "Jakub Gloc",
+            "email": "kuba.linelab@gmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=5.5",
+        "ext-curl": "*",
+        "ext-json": "*",
+        "ext-mbstring": "*",
+        "guzzlehttp/guzzle": "^6.2",
+        "zendframework/zend-validator": "~2.0",
+        "linelab-studio/validator-api-client" : "~1.0.2"
+    },
+    "autoload": {
+        "psr-0": { "TestValid\\" : "src/" }
+    }
+}
